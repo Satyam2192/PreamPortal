@@ -4,13 +4,49 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+  scroll-behavior: smooth;
+
+}
+
+
+.animate-spin{
+  animation: spin 6s linear infinite;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.animate-bounce{
+  animation: bounce 6s infinite;
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: white;
 }
 
 .hash-span {

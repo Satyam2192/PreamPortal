@@ -1,42 +1,37 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { About, Footer } from "./components";
+import React from "react";
+// import TopMembers from "./components/TopMembers";
+import Error from "./components/Error";
+import Navbar from "./components/Navbar";
+import { SignUp, LogIn, FPassword } from "./components/Login";
 
-import { About,Hero,} from "./components";
-import React from 'react';
+import Home from "./containers/Home";
 
 const App = () => {
   return (
-    
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/fpassword" element={<FPassword />} />
+          <Route path="*/" element={<Error />} />
+        </Routes>
 
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Hero />
-        </div>
-        <About />
-      </div>
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
-}
+};
+// <TopMembers />
+// <SignUp />
+//
 
 export default App;
-
-
-
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// import {
-//   About,
-//   Contact,
-//   Experience,
-//   Feedbacks,
-//   Hero,
-//   Navbar,
-//   Tech,
-//   Works,
-//   StarsCanvas,
-// } from "./components";
-// // all styles className="relative z-0 bg-primary"
+// <Works />
 
 // const App = () => {
 //   return (
@@ -51,7 +46,6 @@ export default App;
 //         <Route path="/feedbacks" element={<Feedbacks />} />
 //         <Route path="/contact" element={<Contact />} />
 
-        
 //       </Routes>
 //       <StarsCanvas className="relative z-0" />
 //     </BrowserRouter>
