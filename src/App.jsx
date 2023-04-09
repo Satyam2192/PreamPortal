@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import { SignUp, LogIn, FPassword } from "./components/Login";
 
 import Home from "./containers/Home";
+import Menbers from "./containers/Menbers";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+                    
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/fpassword" element={<FPassword />} />
