@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { useNavigate, Link  } from 'react-router-dom';
-
+import { useNavigate, Link } from "react-router-dom";
 
 function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -25,88 +24,83 @@ function SignUp() {
       password,
       confirmPassword,
     };
-    
+
     // Perform validation here
     let errors = [];
-    if (firstName.trim() === '') {
-      errors.push('First name is required');
+    if (firstName.trim() === "") {
+      errors.push("First name is required");
     }
-    if (lastName.trim() === '') {
-      errors.push('Last name is required');
+    if (lastName.trim() === "") {
+      errors.push("Last name is required");
     }
-    if (email.trim() === '') {
-      errors.push('Email is required');
+    if (email.trim() === "") {
+      errors.push("Email is required");
     }
-    if (verificationCode.trim() === '') {
-      errors.push('Verification code is required');
+    if (verificationCode.trim() === "") {
+      errors.push("Verification code is required");
     }
-    if (password.trim() === '') {
-      errors.push('Password is required');
+    if (password.trim() === "") {
+      errors.push("Password is required");
     }
-    if (confirmPassword.trim() === '') {
-      errors.push('Confirm password is required');
+    if (confirmPassword.trim() === "") {
+      errors.push("Confirm password is required");
     }
     if (password !== confirmPassword) {
-      errors.push('Passwords do not match');
+      errors.push("Passwords do not match");
     }
-    
+
     if (errors.length > 0) {
       // Display error message to the user
       console.log(errors);
     } else {
       // Form data is valid, continue with form submission
       console.log(formData);
-      
+
       // Send form data to the server using fetch or axios
-      fetch('/api/signup', {
-        method: 'POST',
+      fetch("/api/signup", {
+        method: "POST",
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       })
-        .then(res => {
+        .then((res) => {
           // Handle response from the server
           if (res.ok) {
             // Redirect the user to the login page
-            history.push('/login');
+            history.push("/login");
           } else {
             // Display error message to the user
-            console.log('An error occurred');
+            console.log("An error occurred");
           }
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     }
 
-    fetch('./SignUp', {
-      method: 'POST',
+    fetch("./SignUp", {
+      method: "POST",
       body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(res => {
+      .then((res) => {
         // Handle response from the server
       })
-      .catch(err => console.error(err));
-    
+      .catch((err) => console.error(err));
 
+    const navigate = useNavigate();
 
-
-      const navigate = useNavigate();
-
-      if (res.ok) {
-        // Redirect to the login page/dashboard
-        navigate('https://www.youtube.com/watch?v=1-xdlbziBTU');
-      } else {
-        // Display error message to the user
-        navigate('./Error');
-      }
+    if (res.ok) {
+      // Redirect to the login page/dashboard
+      navigate("/login");
+    } else {
+      // Display error message to the user
+      navigate("./Error");
+    }
   };
 
   // ...
-
-  
 
   return (
     <Wrapper>
@@ -163,17 +157,7 @@ function SignUp() {
                 <label for="">Email</label>
               </div>
 
-              <div class="inputbox" id="password">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input
-                  type="password"
-                  required
-                  name="pasw"
-                  value={verificationCode}
-                  onChange={(e) => setVerificationCode(e.target.value)}
-                />
-                <label for="">Enter Verifacation Code</label>
-              </div>
+             
 
               <div class="inputbox" id="password">
                 <ion-icon name="lock-closed-outline"></ion-icon>
@@ -374,4 +358,3 @@ const Wrapper = styled.section`
 `;
 
 export default SignUp;
-

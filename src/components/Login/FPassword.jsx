@@ -2,19 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 function FPassword() {
   return (
     <Wrapper>
       <section>
         <div class="form-box">
           <div class="form-value">
-            <form
-            // action="/myaction.php"
-            // name="myForm"
-            // onsubmit="return validateForm()"
-            // method="post"
-            >
+            <form>
               <h2>Change Password</h2>
 
               <div class="inputbox">
@@ -22,11 +16,7 @@ function FPassword() {
                 <input type="email" required />
                 <label for="">Enter Your Email Address</label>
               </div>
-              <div class="inputbox">
-                <ion-icon name="code"></ion-icon>
-                <input type="mail" required />
-                <label for="">verifacation code</label>
-              </div>
+              
               <div class="inputbox">
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <input type="mail" required />
@@ -40,7 +30,7 @@ function FPassword() {
               <button>Change Password</button>
               <div class="register">
                 <p>
-                <Link to="/LogIn"> Log In</Link>
+                  <Link to="/LogIn"> Log In</Link>
                 </p>
               </div>
             </form>

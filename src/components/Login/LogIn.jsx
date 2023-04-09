@@ -4,41 +4,37 @@ import { Link } from "react-router-dom";
 
 function LogIn() {
   return (
-
-
     <Wrapper>
       <section>
-        <div class="form-box">
-          <div class="form-value">
-            <form
-              // action="/myaction.php"
-              // name="myForm"
-              // onsubmit="return validateForm()"
-              // method="post"
-            >
+        <div className="form-box">
+          <div className="form-value">
+            <form>
               <h2>Log in</h2>
 
-              <div class="inputbox" id="email">
+              <div className="inputbox" id="email">
                 <ion-icon name="mail-outline"></ion-icon>
                 <input type="mail" required />
-                <label for="">Email</label>
+                <label htmlFor="">Email</label>
               </div>
-              <div class="inputbox" id="password">
+              
+              <div className="inputbox" id="password">
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <input type="password" required />
-                <label for="">Password</label>
+                <label htmlFor="">Password</label>
               </div>
-              <div class="forget">
-                <label for="">
+              <div className="forget">
+                <label htmlFor="">
                   <input type="checkbox" />
-                  Remember Me 
-                  <Link className="forgot-password" to="/FPassword">Forget Password</Link>
+                  Remember Me
+                  <Link className="forgot-password" to="/FPassword">
+                    Forget Password
+                  </Link>
                 </label>
               </div>
               <button>Log in</button>
-              <div class="register">
+              <div className="register">
                 <p>
-                  Don't have a account 
+                  Don't have an account?
                   <Link to="/SignUp"> Register</Link>
                 </p>
               </div>
@@ -56,6 +52,7 @@ const Wrapper = styled.section`
     margin: 0;
     padding: 0;
     font-family: "poppins", sans-serif;
+    box-sizing: border-box;
   }
   section {
     display: flex;
@@ -63,139 +60,151 @@ const Wrapper = styled.section`
     align-items: center;
     min-height: 100vh;
     width: 100%;
-
-    background: url("https://source.unsplash.com/1920x1080/?nature") no-repeat;
-
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(
+      to bottom right,
+      #ee6055,
+      #60d394,
+      #aaf683,
+      #ffc746,
+      #ff9b85
+    );
   }
-
-  // @keyframes backgroundColorPalette {
-  //   0% {
-  //     background: #ee6055;
-  //   }
-  //   25% {
-  //     background: #60d394;
-  //   }
-  //   50% {
-  //     background: #aaf683;
-  //   }
-  //   75% {
-  //     background: #ffc746;
-  //   }
-  //   100% {
-  //     background: #ff9b85;
-  //   }
-  // }
-
-  // body {
-  //   animation-name: backgroundColorPalette;
-  //   animation-duration: 60s;
-  //   animation-iteration-count: infinite;
-  //   animation-direction: alternate;
-  // }
-
   .form-box {
     position: relative;
-    width: 400px;
-    height: 450px;
-    background: transparent;
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
   }
   h2 {
-    font-size: 4em;
-    color: #fff;
+    font-size: 3rem;
+    color: #000;
     text-align: center;
+    margin-bottom: 2rem;
   }
   .inputbox {
     position: relative;
-    margin: 30px 0;
-    width: 310px;
-    border-bottom: 2px solid #fff;
+    margin: 1rem 0;
+    width: 100%;
+    border-bottom: 2px solid #000;
   }
   .inputbox label {
     position: absolute;
     top: 50%;
-    left: 5px;
+    left: 1rem;
     transform: translateY(-50%);
-    color: #fff;
-    font-size: 1.3em;
+    color: #000;
+    font-size: 1.3rem;
     pointer-events: none;
     transition: 0.4s;
   }
   input:focus ~ label,
   input:valid ~ label {
-    top: -5px;
+    top: -1.5rem;
+    font-size: 1rem;
   }
   .inputbox input {
     width: 100%;
-    height: 50px;
+    height: 3rem;
     background: transparent;
     border: none;
     outline: none;
-    font-size: 1em;
-    padding: 0 35px 0 5px;
-    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #000;
   }
   .inputbox ion-icon {
     position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
+    right: 1rem;
+    color: #000;
+    font-size: 1.2rem;
+    top: 1.5rem;
   }
   .forget {
-    margin: -15px 0 15px 5px;
-    font-size: 1.1em;
+    margin: -1rem 0 1rem 1rem;
+    font-size: 1.1rem;
     color: #fff;
     display: flex;
-    /
     justify-content: space-between;
-  }
-
-  .forget label input {
-    margin-right: 3px;
-  }
-  .forget label a {
+    align-items: center;
+    }
+    
+    .forget label input {
+    margin-right: 0.5rem;
+    }
+    .forget label a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1em;
-    margin-left: 95px;
-  }
-  .forget label a:hover {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    transition: 0.2s;
+    }
+    .forget label a:hover {
     text-decoration: underline;
-  }
-  button {
+    }
+    button {
     width: 100%;
-    height: 40px;
+    height: 3rem;
     border-radius: 40px;
     background: #fff;
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 1.9em;
+    font-size: 1.2rem;
     font-weight: 600;
-  }
-  .register {
-    font-size: 0.9em;
+    transition: 0.2s;
+    }
+    button:hover {
+    background: #000;
     color: #fff;
+    }
+    .register {
+    font-size: 0.9rem;
+    color: #000;
     text-align: center;
-    margin: 25px 0 10px;
-  }
-  .register p a {
+    margin: 2rem 0 1rem;
+    }
+    .register p a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-weight: 600;
-    margin-left: 10px;
-  }
-  .register p a:hover {
+    margin-left: 0.5rem;
+    transition: 0.2s;
+    }
+    .register p a:hover {
     text-decoration: underline;
-  }
-`;
-
-export default LogIn;
+    }
+    
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+    h2 {
+    font-size: 2rem;
+    }
+    .inputbox label {
+    font-size: 1rem;
+    }
+    input {
+    font-size: 0.9rem;
+    }
+    .forget {
+    font-size: 1rem;
+    }
+    button {
+    font-size: 1.1rem;
+    }
+    .register {
+    font-size: 0.8rem;
+    }
+    }
+    `;
+    
+    export default LogIn;
